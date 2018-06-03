@@ -1,0 +1,59 @@
+
+<!-- saved from url=(0133)http://bcp.crwdcntrl.net/5/c=932/rand=562774902/pv=y/int=%23OpR%2331857%23s_site%20%3A%20medicinenet/p=3151/p=3152/p=3153/dp=y/rt=ifr -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" style="background-color:transparent; width: 100%; text-align: center;">
+<div><script id="LOTCC_368" src="cc.js"></script>
+<script id="LOTCC_796" src="cc(1).js"></script>
+<script>
+function processTargusData(json)
+{
+   if (json != null) {
+       if (json.targus != null) {
+            var fire = null;
+            if (json.targus.sk != null && json.targus.sk != "") {
+                lot368.add("tp", "TARG");
+                lot368.add("tpid", json.targus.sk);
+                fireIt = "m";
+            }
+            if (json.targus.segment != null && json.targus.segment != "000") {
+                lot368.add("genp","tiaas-" + json.targus.segment);
+                fireIt = "b";
+            }
+            if (json.targus.age != null && json.targus.age != "") {
+                lot368.add("genp", new Date().getFullYear() - json.targus.age);
+                fireIt = "b";
+            }
+            if (json.targus.gender != null && json.targus.gender != "") {
+                lot368.add("genp", "gender - " + json.targus.gender);
+                fireIt = "b";
+            }
+            if (fireIt == "b") {
+                lot368.bcpdpv();
+            } else if (fireIt == "m") {
+                var img = new Image();
+                img.src = "http://bcp.crwdcntrl.net/map/c=368/tp=TARG/tpid=" + json.targus.sk;
+                document.body.appendChild(img);
+            }
+        }
+        if (json.Client1 != null) {
+            var fireIt = false;
+            if (json.Client1.segment != null && json.Client1.segment != "000") {
+                if (json.Client1.segment instanceof Array) {
+                    for(var i =0; i < json.Client1.segment.length; i++) {
+                        lot796.add("genp","tialnt-" + json.Client1.segment[i]);
+                        fireIt = true;
+                    }
+                } else {
+                    lot796.add("genp","tialnt-" + json.Client1.segment);
+                    fireIt = true;
+                }
+            }
+            if (fireIt) {
+                lot796.bcpdpv();
+            }
+        }
+   }
+}
+</script>
+<script src="g.json"></script><img src="tpc=na_id" height="1" width="1"><img width="1" height="1" src="dap"><img src="ee855f4892edf369dfcff6f7968ffe86" height="1" width="1"><img src="5907" width="1" height="1"><div><img src="getuid" height="1" width="1"></div><img src="usync" height="1" width="1"><img src="pixel" height="1" width="1"><img src="ping_match.gif" height="1" width="1"><img src="saved_resource" height="1" width="1"><img src="382416.gif" width="1" height="1"><iframe src="px.html" frameborder="0" height="0" width="0" scrolling="no"></iframe></div>
+
+</body></html>
